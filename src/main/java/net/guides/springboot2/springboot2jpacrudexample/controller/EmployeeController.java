@@ -31,24 +31,27 @@ public class EmployeeController {
 	public List<Employee> getAllEmployees() {
 		return employeeRepository.findAll();
 	}
-
+	
+	
     @GetMapping("/employees/{firstName}")
-    public ResponseEntity<Employee> getEmployeeByFirstName(@PathVariable(value = "firstName") String firstName)
+    public ResponseEntity<Employee> getEmployeeByFirstName(@PathVariable(value = "firstName") String first_name)
         throws ResourceNotFoundException {
-        Employee employee = employeeRepository.findById(firstName)
-        .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + firstName));
+        Employee employee = employeeRepository.findById(first_name)
+        .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + first_name));
         return ResponseEntity.ok().body(employee);
     }
-	/**
+    /**
+    
+
     @PostMapping("/employees")
     public Employee createEmployee(@Valid @RequestBody Employee employee) {
         return employeeRepository.save(employee);
     } 
-    */
+   
     
     @GetMapping("/employees/create/{firstName}/{lastName}/{emailId}")
     public ResponseEntity<Employee> createEmplyee(@PathVariable(value = "firstName") String firstName,
-    		@PathVariable(value = "lastName") String lastName, @PathVariable(value = "emailId") String emailId){
+    		@PathVariable(value = "lastName") String lastName, @PathVariable(value = "emailId") int emailId){
     		Employee employee = new Employee();
 	        employee.setEmailId(emailId);
 	        employee.setLastName(lastName);
@@ -84,5 +87,5 @@ public class EmployeeController {
        return response;
     }
     
-	
+	 */
 }

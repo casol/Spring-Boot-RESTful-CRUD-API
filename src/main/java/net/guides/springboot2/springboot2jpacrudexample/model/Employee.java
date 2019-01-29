@@ -1,5 +1,7 @@
 package net.guides.springboot2.springboot2jpacrudexample.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,53 +10,49 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "OW_SYS_PRJ_USER")
 public class Employee {
 
 
-    private String firstName;
-    private String lastName;
-    private String emailId;
+    private String  first_name;
+    private String last_name;
+    private BigDecimal something2;
  
     public Employee() {
   
     }
  
-    public Employee(String firstName, String lastName, String emailId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
+    public Employee(String first_name, String last_name, BigDecimal something2 ) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.something2 = something2;
     }
  
     
     @Id
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "project_name", nullable = false)
        public String getFirstName() {
-           return firstName;
+           return first_name;
     }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String first_name) {
+        this.first_name = first_name;
     }
  
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "user_id", nullable = false)
     public String getLastName() {
-        return lastName;
+        return last_name;
     }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
- 
-    @Column(name = "email_address", nullable = false)
-    public String getEmailId() {
-        return emailId;
-    }
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setLastName(String last_name) {
+        this.last_name = last_name;
     }
 
-    @Override
-    public String toString() {
-        return "Employee [" + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
-        + "]";
+    @Column(name = "SECURITY_LEVEL")
+    public BigDecimal getLastsec() {
+        return something2;
     }
+    public void setLastsec(BigDecimal something2) {
+        this.something2 = something2;
+    }
+
+
 }
